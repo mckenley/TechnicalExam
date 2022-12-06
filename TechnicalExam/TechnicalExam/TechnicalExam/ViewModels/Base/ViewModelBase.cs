@@ -1,6 +1,7 @@
 ﻿using Prism.Mvvm;
 using Prism.Navigation;
 using System.ComponentModel;
+using Xamarin.Essentials;
 
 namespace TechnicalExam.ViewModels
 {
@@ -20,6 +21,19 @@ namespace TechnicalExam.ViewModels
         public virtual void OnNavigatedTo(INavigationParameters parameters)
         {
 
+        }
+
+        public bool IsConnectedToInternet()
+        {
+            IsBusy = true;
+            var current = Connectivity.NetworkAccess;
+
+            if (current != NetworkAccess.Internet)
+            {
+                return false;
+            }
+            else
+                return true;
         }
     }
 }

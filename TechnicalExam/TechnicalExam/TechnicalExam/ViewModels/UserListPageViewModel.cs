@@ -1,7 +1,6 @@
 ﻿using Prism.Navigation;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using TechnicalExam.Models;
 using TechnicalExam.Services;
 
@@ -21,11 +20,16 @@ namespace TechnicalExam.ViewModels
         {
             try
             {
+                if (!IsConnectedToInternet())
+                {
+                    return;
+                }
+
                 Users = await _userService.GetUsers();
             }
             catch (Exception ex)
             {
-
+                
             }
             finally
             {
