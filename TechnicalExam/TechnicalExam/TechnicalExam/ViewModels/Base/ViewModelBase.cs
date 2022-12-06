@@ -1,9 +1,10 @@
 ﻿using Prism.Mvvm;
 using Prism.Navigation;
+using System.ComponentModel;
 
 namespace TechnicalExam.ViewModels
 {
-    public class ViewModelBase : BindableBase, INavigationAware, IInitialize
+    public class ViewModelBase : BindableBase, INavigationAware, IInitialize, INotifyPropertyChanged
     {
         public bool IsBusy { get; set; }
         public virtual void Initialize(INavigationParameters parameters)

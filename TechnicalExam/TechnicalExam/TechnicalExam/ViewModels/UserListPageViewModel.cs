@@ -1,5 +1,8 @@
 ﻿using Prism.Navigation;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using TechnicalExam.Models;
 using TechnicalExam.Services;
 
 namespace TechnicalExam.ViewModels
@@ -7,6 +10,7 @@ namespace TechnicalExam.ViewModels
     public class UserListPageViewModel : ViewModelBase
     {
         private readonly IUserService _userService;
+        public List<UserModel> Users { get; set; }
 
         public UserListPageViewModel(IUserService userService)
         {
@@ -17,7 +21,7 @@ namespace TechnicalExam.ViewModels
         {
             try
             {
-                var test = await _userService.GetUsers();
+                Users = await _userService.GetUsers();
             }
             catch (Exception ex)
             {

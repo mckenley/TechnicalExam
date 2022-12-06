@@ -2,11 +2,17 @@
 <ContentPage
     x:Class="TechnicalExam.Views.UserListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:TechnicalExam.Models"
+    xmlns:vm="clr-namespace:TechnicalExam.ViewModels"
+    x:DataType="vm:UserListPageViewModel">
 
-    <Label
-        FontSize="36"
-        HorizontalTextAlignment="Center"
-        Text="Welcome to Xamarin.Forms!" />
+    <CollectionView ItemsSource="{Binding Users}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:UserModel">
+                <Label HorizontalOptions="FillAndExpand" Text="{Binding Name}" />
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 
 </ContentPage>
