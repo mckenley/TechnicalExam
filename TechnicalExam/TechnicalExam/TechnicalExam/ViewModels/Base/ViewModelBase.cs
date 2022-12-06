@@ -1,4 +1,5 @@
-﻿using Prism.Mvvm;
+﻿using Acr.UserDialogs;
+using Prism.Mvvm;
 using Prism.Navigation;
 using System.ComponentModel;
 using Xamarin.Essentials;
@@ -30,6 +31,7 @@ namespace TechnicalExam.ViewModels
 
             if (current != NetworkAccess.Internet)
             {
+                UserDialogs.Instance.Alert("Please check your internet connection and try again.", okText: "OK");
                 return false;
             }
             else

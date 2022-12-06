@@ -1,6 +1,6 @@
-﻿using Prism.Commands;
+﻿using Acr.UserDialogs;
+using Prism.Commands;
 using Prism.Navigation;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -33,9 +33,9 @@ namespace TechnicalExam.ViewModels
 
                 Users = await _userService.GetUsers();
             }
-            catch (Exception ex)
+            catch
             {
-                
+                UserDialogs.Instance.Alert("Something went wrong in getting the users. Please try again.", okText: "OK");
             }
             finally
             {
