@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using TechnicalExam.Models;
@@ -29,7 +30,10 @@ namespace TechnicalExam.Services
             {
                 string content = await response.Content.ReadAsStringAsync();
                 List<UserModel> result = JsonConvert.DeserializeObject<List<UserModel>>(content);
-                return result;
+                List<UserModel> filteredResult = result.GroupBy(u => u.Id)
+                                                       .Select(u => u.FirstOrDefault())
+                                                       .ToList();
+                return filteredResult;
             }
 
             return null;
