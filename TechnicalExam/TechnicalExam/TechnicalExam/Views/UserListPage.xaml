@@ -5,12 +5,57 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:TechnicalExam.Models"
     xmlns:vm="clr-namespace:TechnicalExam.ViewModels"
+    Title="User List"
+    Padding="20"
     x:DataType="vm:UserListPageViewModel">
 
     <CollectionView ItemsSource="{Binding Users}">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout ItemSpacing="20" Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="models:UserModel">
-                <Label HorizontalOptions="FillAndExpand" Text="{Binding Name}" />
+
+                <Grid
+                    ColumnDefinitions="Auto,*"
+                    HeightRequest="100"
+                    RowDefinitions="Auto,Auto,.5">
+                    <Frame
+                        Grid.RowSpan="2"
+                        Margin="10,0"
+                        Padding="0"
+                        CornerRadius="40"
+                        HasShadow="False"
+                        HeightRequest="80"
+                        VerticalOptions="Center"
+                        WidthRequest="80">
+                        <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
+                    </Frame>
+
+                    <Label
+                        Grid.Column="1"
+                        FontSize="20"
+                        HorizontalOptions="FillAndExpand"
+                        Text="{Binding Id}" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="FillAndExpand">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span FontAttributes="Bold" Text="Name: " />
+                                <Span Text="{Binding Name}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <BoxView
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="Gray" />
+                </Grid>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
