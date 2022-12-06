@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\MainPage.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
+    <Compile Update="Views\UserListPage.xaml.cs">
+      <DependentUpon>UserListPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\NavPage.xaml.cs">
       <DependentUpon>NavPage.xaml</DependentUpon>

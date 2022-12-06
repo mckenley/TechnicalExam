@@ -13,13 +13,13 @@ namespace TechnicalExam
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync($"{nameof(ViewNames.NavPage)}/{nameof(ViewNames.MainPage)}");
+            NavigationService.NavigateAsync($"{nameof(ViewNames.NavPage)}/{nameof(ViewNames.UserListPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<UserListPage, UserListPageViewModel>();
         }
     }
 }

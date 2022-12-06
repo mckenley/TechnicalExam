@@ -3,6 +3,6 @@
     public enum ViewNames
     {
         NavPage,
-        MainPage
+        UserListPage
     }
 }

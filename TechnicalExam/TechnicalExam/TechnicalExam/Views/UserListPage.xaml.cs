@@ -2,9 +2,9 @@
 
 namespace TechnicalExam.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class UserListPage : ContentPage
     {
-        public MainPage()
+        public UserListPage()
         {
             InitializeComponent();
         }
