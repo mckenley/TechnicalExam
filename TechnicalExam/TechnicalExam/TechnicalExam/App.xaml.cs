@@ -21,6 +21,7 @@ namespace TechnicalExam
         {
             containerRegistry.RegisterForNavigation<NavPage>();
             containerRegistry.RegisterForNavigation<UserListPage, UserListPageViewModel>();
+            containerRegistry.RegisterForNavigation<UserDetailsPage, UserDetailsPageViewModel>();
 
             containerRegistry.RegisterSingleton<IUserService, UserService>();
         }

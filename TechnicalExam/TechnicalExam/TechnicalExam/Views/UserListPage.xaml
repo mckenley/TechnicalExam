@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:TechnicalExam.Models"
     xmlns:vm="clr-namespace:TechnicalExam.ViewModels"
+    x:Name="userListPage"
     Title="User List"
     Padding="20"
     x:DataType="vm:UserListPageViewModel">
@@ -16,7 +17,6 @@
 
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="models:UserModel">
-
                 <Grid
                     ColumnDefinitions="Auto,*"
                     HeightRequest="100"
@@ -55,6 +55,10 @@
                         Grid.Row="2"
                         Grid.ColumnSpan="2"
                         BackgroundColor="Gray" />
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=BindingContext.SelectUserCommand, Source={x:Reference userListPage}}" CommandParameter="{Binding .}" />
+                    </Grid.GestureRecognizers>
                 </Grid>
             </DataTemplate>
         </CollectionView.ItemTemplate>
