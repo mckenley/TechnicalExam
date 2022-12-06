@@ -1,6 +1,7 @@
 ﻿using Prism;
 using Prism.Ioc;
 using Prism.Unity;
+using TechnicalExam.Services;
 using TechnicalExam.ViewModels;
 using TechnicalExam.Views;
 
@@ -20,6 +21,8 @@ namespace TechnicalExam
         {
             containerRegistry.RegisterForNavigation<NavPage>();
             containerRegistry.RegisterForNavigation<UserListPage, UserListPageViewModel>();
+
+            containerRegistry.RegisterSingleton<IUserService, UserService>();
         }
     }
 }

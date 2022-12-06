@@ -3,8 +3,9 @@ using Prism.Navigation;
 
 namespace TechnicalExam.ViewModels
 {
-    public class ViewModelBase : BindableBase, INavigationAware
+    public class ViewModelBase : BindableBase, INavigationAware, IInitialize
     {
+        public bool IsBusy { get; set; }
         public virtual void Initialize(INavigationParameters parameters)
         {
 
