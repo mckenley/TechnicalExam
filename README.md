@@ -1,2 +1,2 @@
-# TechnicalExam
- ERNI Technical Exam for Xamarin Forms
+# Technical Exam
+ Xamarin Forms Technical Exam for ERNI
