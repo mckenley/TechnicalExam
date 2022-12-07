@@ -2,6 +2,7 @@
 using Prism.Commands;
 using Prism.Navigation;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TechnicalExam.Models;
@@ -37,7 +38,11 @@ namespace TechnicalExam.ViewModels
                     return;
                 }
 
-                Users = await _userService.GetUsers();
+                List<UserModel> users = await _userService.GetUsers();
+
+                Users = users.GroupBy(u => u.Id)
+                             .Select(u => u.FirstOrDefault())
+                             .ToList();
             }
             catch
             {

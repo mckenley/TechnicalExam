@@ -30,10 +30,7 @@ namespace TechnicalExam.Services
             {
                 string content = await response.Content.ReadAsStringAsync();
                 List<UserModel> result = JsonConvert.DeserializeObject<List<UserModel>>(content);
-                List<UserModel> filteredResult = result.GroupBy(u => u.Id)
-                                                       .Select(u => u.FirstOrDefault())
-                                                       .ToList();
-                return filteredResult;
+                return result;
             }
 
             return null;
