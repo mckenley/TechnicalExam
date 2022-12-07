@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TechnicalExam.Constants;
 using TechnicalExam.Models;
 using TechnicalExam.Services;
 
@@ -58,7 +59,7 @@ namespace TechnicalExam.ViewModels
         {
             NavigationParameters parameters = new NavigationParameters
             {
-                { "SelectedUser", user },
+                { NavigationKeyConstants.SelectedUser , user },
             };
 
             await _navigationService.NavigateAsync(nameof(ViewNames.UserDetailsPage), parameters);

@@ -1,4 +1,5 @@
 ﻿using Prism.Navigation;
+using TechnicalExam.Constants;
 using TechnicalExam.Models;
 
 namespace TechnicalExam.ViewModels
@@ -14,9 +15,9 @@ namespace TechnicalExam.ViewModels
 
         public override void Initialize(INavigationParameters parameters)
         {
-            if (parameters.ContainsKey("SelectedUser"))
+            if (parameters.ContainsKey(NavigationKeyConstants.SelectedUser))
             {
-                CurrentUser = parameters["SelectedUser"] as UserModel;              
+                CurrentUser = parameters[NavigationKeyConstants.SelectedUser] as UserModel;
             }
         }
     }
