@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TechnicalExam.Views.UserDetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:TechnicalExam.ViewModels"
+    Title="User Details"
+    x:DataType="vm:UserDetailsPageViewModel">
+
+    <StackLayout Padding="20">
+        <Frame
+            Padding="0"
+            CornerRadius="100"
+            HasShadow="False"
+            HeightRequest="200"
+            HorizontalOptions="Center"
+            WidthRequest="200">
+            <Image Aspect="AspectFill" Source="{Binding CurrentUser.ImageUrl}" />
+        </Frame>
+
+        <Label
+            FontSize="30"
+            HorizontalTextAlignment="Center"
+            Text="{Binding CurrentUser.Name}" />
+    </StackLayout>
+
+</ContentPage>
