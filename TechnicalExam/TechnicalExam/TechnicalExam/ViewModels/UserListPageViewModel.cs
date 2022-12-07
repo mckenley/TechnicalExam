@@ -24,10 +24,16 @@ namespace TechnicalExam.ViewModels
 
         public override async void Initialize(INavigationParameters parameters)
         {
+            await GetUsers();
+        }
+
+        private async Task GetUsers()
+        {
             try
             {
                 if (!IsConnectedToInternet())
                 {
+                    UserDialogs.Instance.Alert("Please check your internet connection and try again.", okText: "OK");
                     return;
                 }
 
@@ -42,6 +48,7 @@ namespace TechnicalExam.ViewModels
                 IsBusy = false;
             }
         }
+
         private async Task SelectUser(UserModel user)
         {
             NavigationParameters parameters = new NavigationParameters

@@ -1,5 +1,4 @@
-﻿using Acr.UserDialogs;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using Prism.Navigation;
 using System.ComponentModel;
 using Xamarin.Essentials;
@@ -27,11 +26,10 @@ namespace TechnicalExam.ViewModels
         public bool IsConnectedToInternet()
         {
             IsBusy = true;
-            var current = Connectivity.NetworkAccess;
+            NetworkAccess current = Connectivity.NetworkAccess;
 
             if (current != NetworkAccess.Internet)
             {
-                UserDialogs.Instance.Alert("Please check your internet connection and try again.", okText: "OK");
                 return false;
             }
             else
